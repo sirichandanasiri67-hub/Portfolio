@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siri Chandana | AI Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+
+        body { 
+            background: #020617; 
+            color: white; 
+            overflow-x: hidden; 
+            font-family: 'Space Grotesk', sans-serif; 
+            scroll-behavior: smooth; 
+        }
+
+        /* Animated Mesh Background */
+        .mesh-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #1e293b 0%, #020617 100%);
+            z-index: -1;
+        }
+
+        .gradient-text { 
+            background: linear-gradient(90deg, #60a5fa, #34d399, #fbbf24); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(12px); 
+            border-radius: 24px; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+
+        .glass-card:hover { 
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.02) translateY(-5px);
+            border-color: rgba(96, 165, 250, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .tech-badge { 
+            background: rgba(96, 165, 250, 0.1); 
+            border: 1px solid rgba(96, 165, 250, 0.2); 
+            padding: 5px 12px; border-radius: 20px; font-size: 10px; color: #60a5fa; 
+            transition: 0.3s;
+        }
+        .tech-badge:hover { background: #60a5fa; color: white; }
+
+        /* Floating Animation for Chatbot */
+        @keyframes float-chat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+        .animate-chat { animation: float-chat 3s infinite ease-in-out; }
+
+        /* Particles animation */
+        .particle {
+            position: absolute; background: rgba(96, 165, 250, 0.2);
+            border-radius: 50%; pointer-events: none;
+            animation: move-particles 20s linear infinite;
+        }
+        @keyframes move-particles {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100vh); opacity: 0; }
+        }
+
+        .chat-window { height: 450px; display: none !important; flex-direction: column; }
+    </style>
+</head>
+<body>
+
+    <div class="mesh-bg"></div>
+    <div id="particles-container"></div>
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center glass-card rounded-none border-t-0 border-x-0 bg-slate-950/40">
+        <span class="text-2xl font-bold tracking-tighter text-blue-400">SIRI<span class="text-white">.AI</span></span>
+        <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
+            <a href="#about" class="hover:text-blue-400 transition">About</a>
+            <a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+            <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
+            <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+        </div>
+        <div class="flex items-center gap-5">
+            <a href="https://github.com/sirichandanasiri67-hub" target="_blank" class="text-xl text-gray-400 hover:text-white hover:scale-125 transition-all"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/siri-chandana07" target="_blank" class="text-xl text-gray-400 hover:text-white hover:scale-125 transition-all"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="h-screen flex flex-col justify-center items-center text-center px-6">
+        <div data-aos="fade-down">
+            <div class="inline-block px-4 py-1 mb-6 border border-blue-500/30 rounded-full bg-blue-500/10 text-blue-400 text-[10px] font-bold tracking-widest uppercase">
+                🚀 Engineering the Future
+            </div>
+            <h1 class="text-7xl md:text-9xl font-extrabold mb-6 gradient-text">Siri Chandana</h1>
+            <p class="text-gray-400 text-xl md:text-2xl max-w-3xl mx-auto font-light leading-relaxed">
+                I build <span id="typed" class="text-white border-b-2 border-blue-500"></span>
+            </p>
+            <div class="mt-12 flex flex-wrap justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-500 px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-blue-500/30">View Portfolio</a>
+                <a href="tel:7569726142" class="glass-card px-10 py-4 rounded-full font-bold hover:bg-white/5 transition">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-32 max-w-4xl mx-auto px-6 text-center">
+        <div class="glass-card p-12 md:p-20 relative overflow-hidden" data-aos="fade-up">
+            <!-- Decorative circle -->
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
+            
+            <h2 class="text-5xl font-bold gradient-text mb-8">The Story</h2>
+            <div class="text-gray-300 text-xl leading-relaxed space-y-6">
+                <p>
+                    I'm a B.Tech student at <b>Swarnandhra College of Engineering</b> with a mission to simplify technology through AI. I believe that good code is not just functional, but also intelligent.
+                </p>
+                <p>
+                    From analyzing complex resumes to classifying spam messages, my work focuses on <b>Machine Learning, NLP, and Logic-based systems</b>.
+                </p>
+            </div>
+            <div class="mt-12 flex justify-center gap-12">
+                <div class="group">
+                    <h4 class="text-4xl font-bold text-blue-400 group-hover:scale-110 transition">4</h4>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">Projects</p>
+                </div>
+                <div class="w-[1px] bg-white/10 h-12 my-auto"></div>
+                <div class="group">
+                    <h4 class="text-4xl font-bold text-emerald-400 group-hover:scale-110 transition">B.Tech</h4>
+                    <p class="text-gray-500 text-xs uppercase tracking-widest">Education</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-24 max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-16 text-center" data-aos="fade-up">Tech Stack</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-10 text-center" data-aos="zoom-in" data-aos-delay="100">
+                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-400 text-3xl"><i class="fa-solid fa-code"></i></div>
+                <h4 class="font-bold mb-4 text-xl">Core</h4>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="tech-badge">Python</span><span class="tech-badge">SQL</span><span class="tech-badge">Java</span>
+                </div>
+            </div>
+            <div class="glass-card p-10 text-center" data-aos="zoom-in" data-aos-delay="200">
+                <div class="w-16 h-16 bg-emerald-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-emerald-400 text-3xl"><i class="fa-solid fa-brain"></i></div>
+                <h4 class="font-bold mb-4 text-xl">Intelligence</h4>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="tech-badge">ML Models</span><span class="tech-badge">NLP</span><span class="tech-badge">Data Science</span>
+                </div>
+            </div>
+            <div class="glass-card p-10 text-center" data-aos="zoom-in" data-aos-delay="300">
+                <div class="w-16 h-16 bg-purple-500/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-purple-400 text-3xl"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                <h4 class="font-bold mb-4 text-xl">Workflow</h4>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="tech-badge">GitHub</span><span class="tech-badge">VS Code</span><span class="tech-badge">Colab</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-32 max-w-6xl mx-auto px-6">
+        <h2 class="text-5xl font-bold gradient-text mb-16 text-center">Featured Work</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- Project cards with animation -->
+            <div class="glass-card p-10 relative group" data-aos="fade-up">
+                <span class="text-xs font-bold text-blue-400 tracking-tighter">01. AI TOOL</span>
+                <h3 class="text-3xl font-bold mt-2 mb-4 group-hover:text-blue-400 transition">Resume Analyzer</h3>
+                <p class="text-gray-400 mb-8 text-sm">Automated extraction of entities and skills from candidate resumes.</p>
+                <a href="https://github.com/sirichandanasiri67-hub/Resume-analyzer" target="_blank" class="inline-block w-12 h-12 bg-white/5 rounded-full text-center leading-[48px] hover:bg-blue-600 transition-all"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="glass-card p-10 relative group" data-aos="fade-up" data-aos-delay="100">
+                <span class="text-xs font-bold text-emerald-400 tracking-tighter">02. LOGIC ENGINE</span>
+                <h3 class="text-3xl font-bold mt-2 mb-4 group-hover:text-emerald-400 transition">Expert System</h3>
+                <p class="text-gray-400 mb-8 text-sm">Rule-based system designed for decision support and domain expertise.</p>
+                <a href="https://github.com/sirichandanasiri67-hub/ExpertSystem_SiriChandana" target="_blank" class="inline-block w-12 h-12 bg-white/5 rounded-full text-center leading-[48px] hover:bg-emerald-600 transition-all"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="glass-card p-10 relative group" data-aos="fade-up">
+                <span class="text-xs font-bold text-purple-400 tracking-tighter">03. NLP PROJECT</span>
+                <h3 class="text-3xl font-bold mt-2 mb-4 group-hover:text-purple-400 transition">Spam Mail Classifier</h3>
+                <p class="text-gray-400 mb-8 text-sm">Real-time identification of spam emails using Logistic Regression.</p>
+                <a href="https://github.com/sirichandanasiri67-hub/Spam-Mail-Classifier" target="_blank" class="inline-block w-12 h-12 bg-white/5 rounded-full text-center leading-[48px] hover:bg-purple-600 transition-all"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="glass-card p-10 relative group" data-aos="fade-up" data-aos-delay="100">
+                <span class="text-xs font-bold text-red-400 tracking-tighter">04. TEXT MINING</span>
+                <h3 class="text-3xl font-bold mt-2 mb-4 group-hover:text-red-400 transition">Spam SMS Classifier</h3>
+                <p class="text-gray-400 mb-8 text-sm">Filtering fraudulent mobile messages through advanced text processing.</p>
+                <a href="https://github.com/sirichandanasiri67-hub/Spam-Smss" target="_blank" class="inline-block w-12 h-12 bg-white/5 rounded-full text-center leading-[48px] hover:bg-red-600 transition-all"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER & CONTACT -->
+    <footer class="py-20 text-center border-t border-white/5">
+        <h2 class="text-3xl font-bold mb-8">Let's Connect</h2>
+        <div class="flex justify-center gap-8 mb-10">
+            <a href="mailto:sirichandanasiri67@gmail.com" class="text-2xl hover:text-blue-400 transition hover:scale-125"><i class="fa-solid fa-envelope"></i></a>
+            <a href="tel:7569726142" class="text-2xl hover:text-emerald-400 transition hover:scale-125"><i class="fa-solid fa-phone"></i></a>
+        </div>
+        <p class="text-gray-500 text-xs uppercase tracking-widest">© 2026 Siri Chandana • All Systems Go</p>
+    </footer>
+
+    <!-- BOUNCING CHATBOT -->
+    <div onclick="toggleChat()" class="fixed bottom-10 right-10 z-50 cursor-pointer">
+        <div class="relative w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-2xl animate-chat hover:scale-110 transition">
+            <i class="fa-solid fa-robot text-2xl text-white"></i>
+            <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] px-2 py-0.5 rounded-full animate-pulse font-bold">1</span>
+        </div>
+    </div>
+
+    <!-- CHAT WINDOW -->
+    <div id="chat-window" class="fixed bottom-28 right-10 w-80 md:w-96 glass-card border-blue-500/30 chat-window z-50 shadow-2xl overflow-hidden">
+        <div class="p-5 border-b border-white/10 flex justify-between items-center bg-blue-600/20">
+            <span class="font-bold text-sm text-blue-400">🤖 Siri Assistant</span>
+            <button onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="chat-content" class="flex-1 p-5 overflow-y-auto space-y-4 text-xs text-gray-300">
+            <div class="bg-white/5 p-3 rounded-2xl rounded-tl-none border border-white/10">Hi! I'm the AI version of Siri. Ask me about her projects!</div>
+        </div>
+        <div class="p-4 border-t border-white/10 flex gap-2">
+            <input id="chat-input" type="text" placeholder="Type here..." class="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs focus:outline-none focus:border-blue-500">
+            <button onclick="sendMessage()" class="bg-blue-600 p-3 rounded-xl"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Typing Effect
+        new Typed('#typed', {
+            strings: ['Intelligent ML Models', 'NLP Classifiers', 'Robust Expert Systems', 'The Future of AI'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // Particle background
+        const container = document.getElementById('particles-container');
+        for (let i = 0; i < 30; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.width = Math.random() * 4 + 'px';
+            p.style.height = p.style.width;
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.bottom = '-10px';
+            p.style.animationDuration = Math.random() * 10 + 10 + 's';
+            p.style.animationDelay = Math.random() * 5 + 's';
+            container.appendChild(p);
+        }
+
+        function toggleChat() {
+            const chat = document.getElementById('chat-window');
+            const isFlex = chat.style.display === 'flex';
+            chat.style.setProperty('display', isFlex ? 'none' : 'flex', 'important');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const content = document.getElementById('chat-content');
+            if (!input.value.trim()) return;
+
+            content.innerHTML += `<div class="text-right text-blue-400 mb-2">You: ${input.value}</div>`;
+            const q = input.value.toLowerCase();
+            input.value = "";
+
+            let res = "Siri built me to help! Ask about her Python skills or ML projects.";
+            if(q.includes("skill")) res = "Siri excels in Python, Machine Learning, and NLP.";
+            if(q.includes("project")) res = "She has 4 key projects: Resume Analyzer, Expert System, and two Spam Classifiers.";
+            if(q.includes("college")) res = "She's currently at Swarnandhra College of Engineering.";
+
+            setTimeout(() => {
+                content.innerHTML += `<div class="bg-white/5 p-3 rounded-2xl rounded-tl-none border border-white/10 text-gray-400">🤖: ${res}</div>`;
+                content.scrollTop = content.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
