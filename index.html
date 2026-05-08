@@ -66,13 +66,16 @@
         }
 
         .chat-window { height: 450px; display: none !important; flex-direction: column; }
+        
+        /* Chat scrollbar styling */
+        #chat-content::-webkit-scrollbar { width: 4px; }
+        #chat-content::-webkit-scrollbar-thumb { background: rgba(34, 211, 238, 0.3); border-radius: 10px; }
     </style>
 </head>
 <body>
 
     <div class="mesh-bg"></div>
     
-    <!-- NAVBAR -->
     <nav class="fixed top-0 w-full z-50 p-6 flex justify-between items-center glass-card rounded-none border-t-0 border-x-0 bg-gray-950/20">
         <span class="text-2xl font-extrabold tracking-tight heading-font">SIRI<span class="text-cyan-400">.CORE</span></span>
         <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em]">
@@ -86,13 +89,11 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <section class="h-screen flex flex-col justify-center items-center text-center px-6 relative">
         <div data-aos="zoom-out" data-aos-duration="2000">
             <div class="inline-block px-4 py-1 mb-6 border border-cyan-500/30 rounded-lg bg-cyan-500/5 text-cyan-400 text-[10px] font-bold tracking-widest uppercase">
                 🚀 AI Protocol Initiated
             </div>
-            <!-- Name Updated Here -->
             <h1 class="text-6xl md:text-8xl font-black mb-6 heading-font tracking-tighter">Siri Chandana <span class="gradient-text">Mancha</span></h1>
             <p class="text-gray-400 text-xl md:text-2xl max-w-3xl mx-auto font-light">
                 Architecting <span id="typed" class="text-cyan-400 font-bold"></span>
@@ -104,13 +105,12 @@
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about" class="py-32 max-w-4xl mx-auto px-6">
         <div data-aos="fade-up">
             <div class="glass-card p-12 text-center">
                 <h2 class="text-4xl font-bold gradient-text mb-8 heading-font">Core Summary</h2>
                 <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                    Based at <b>Swarnandhra College</b>, I specialize in bridging the gap between raw data and intelligent action. My work focuses on Generative AI, NLP, and Predictive Models that solve real-world complexities through elegant code.
+                    Based at <b>Swarnandhra College Of Engineering And Technology</b>, I specialize in bridging the gap between raw data and intelligent action. My work focuses on Generative AI, NLP, and Predictive Models that solve real-world complexities through elegant code.
                 </p>
                 <div class="grid grid-cols-2 gap-6 max-w-md mx-auto">
                     <div class="p-4 border-l-2 border-purple-500 bg-purple-500/5">
@@ -126,7 +126,6 @@
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
     <section id="projects" class="py-24 max-w-6xl mx-auto px-6">
         <div class="flex justify-between items-end mb-16">
             <h2 class="text-5xl font-bold heading-font">Digital <span class="text-purple-400">Vault</span></h2>
@@ -163,7 +162,6 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer id="contact" class="py-24 border-t border-white/5 text-center">
         <h2 class="text-4xl font-bold mb-10 heading-font">Ready to <span class="gradient-text">Collaborate?</span></h2>
         <div class="flex justify-center flex-wrap gap-6 mb-12">
@@ -180,29 +178,27 @@
                 <i class="fa-brands fa-github"></i>
             </a>
         </div>
-        <!-- Footer Name Updated -->
         <p class="text-gray-600 text-[10px] tracking-[0.5em] uppercase">Built for the future • Siri Chandana Mancha • 2026</p>
     </footer>
 
-    <!-- CHAT TRIGGER -->
     <div onclick="toggleChat()" class="fixed bottom-10 right-10 z-50 cursor-pointer">
         <div class="w-16 h-16 bg-gradient-to-tr from-purple-600 to-cyan-500 rounded-2xl flex items-center justify-center shadow-2xl hover:rotate-90 transition-all duration-500">
             <i class="fa-solid fa-terminal text-white"></i>
         </div>
     </div>
 
-    <!-- CHAT INTERFACE -->
-    <div id="chat-window" class="fixed bottom-28 right-10 w-85 glass-card chat-window z-50 shadow-2xl overflow-hidden border-cyan-500/20">
+    <div id="chat-window" class="fixed bottom-28 right-10 w-80 glass-card chat-window z-50 shadow-2xl overflow-hidden border-cyan-500/20">
         <div class="p-4 border-b border-white/10 flex justify-between items-center bg-gray-950/50">
             <span class="font-bold text-xs tracking-widest text-cyan-400 uppercase">System Terminal</span>
             <button onclick="toggleChat()"><i class="fa-solid fa-minus text-gray-500"></i></button>
         </div>
         <div id="chat-content" class="flex-1 p-6 overflow-y-auto space-y-4 text-[11px] font-mono text-cyan-100/70">
             <div class="border-l-2 border-cyan-500 pl-3">Initializing Siri_OS... Connection secure.</div>
+            <div class="text-gray-500">Type 'projects' to see archives.</div>
         </div>
         <div class="p-4 bg-gray-950/30 flex gap-2">
             <input id="chat-input" type="text" placeholder="Enter command..." class="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-[10px] font-mono focus:outline-none focus:border-cyan-500 text-cyan-400">
-            <button onclick="sendMessage()" class="bg-cyan-500 text-black p-3 rounded-lg"><i class="fa-solid fa-chevron-right"></i></button>
+            <button onclick="sendMessage()" class="bg-cyan-500 text-black p-3 rounded-lg hover:bg-cyan-400 transition"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
     </div>
 
@@ -229,21 +225,32 @@
             const q = input.value.toLowerCase();
             input.value = "";
             
-            let res = "ARCHIVE_NOT_FOUND. Try 'projects' or 'who are you'.";
+            let res = "ARCHIVE_NOT_FOUND. Try 'projects' or a specific project name like 'Resume Analyzer'.";
             
-            if(q.includes("who are you")) {
-                // Bot Response Updated
+            if(q.includes("who are you") || q.includes("who is siri")) {
                 res = "I am Siri's Bot. Designed to provide data protocols on Siri Chandana Mancha's digital archives.";
             } else if(q.includes("resume analyzer")) {
-                res = "PROJECT: Resume Analyzer <br>TOOLS: Python, NLP (NLTK/Spacy), Streamlit. <br>LOGIC: Parses documents to extract skills and match them with Job Descriptions using cosine similarity.";
+                res = `<b>PROJECT:</b> Resume Analyzer<br>
+                       <b>TOOLS:</b> Python, NLP, NLTK, Spacy, Streamlit<br>
+                       <b>LOGIC:</b> Extracts skills and matches them with JDs using Cosine Similarity.<br>
+                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/Resume-analyzer" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
             } else if(q.includes("expert system")) {
-                res = "PROJECT: Expert System <br>TOOLS: Python, Knowledge Base. <br>LOGIC: Implements inference engines to emulate human decision-making based on preset rules.";
-            } else if(q.includes("spam mail")) {
-                res = "PROJECT: Spam Mail Classifier <br>TOOLS: Scikit-learn, MultinomialNB/Logistic Regression. <br>LOGIC: Uses TF-IDF vectorization to classify text as Spam or Ham.";
-            } else if(q.includes("spam sms")) {
-                res = "PROJECT: Spam SMS <br>TOOLS: Python, ML. <br>LOGIC: Filters SMS using supervised learning models trained on communication datasets.";
+                res = `<b>PROJECT:</b> Expert System<br>
+                       <b>TOOLS:</b> Python, Knowledge Base, Logic Inference<br>
+                       <b>LOGIC:</b> Rule-based engines for intelligent decision-making.<br>
+                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/ExpertSystem_SiriChandana" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
+            } else if(q.includes("mail classifier") || q.includes("spam mail")) {
+                res = `<b>PROJECT:</b> Spam Mail Classifier<br>
+                       <b>TOOLS:</b> Python, Scikit-Learn, Pandas, Logistic Regression<br>
+                       <b>LOGIC:</b> Classifies text into Spam or Ham using TF-IDF vectorization.<br>
+                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/Spam-Mail-Classifier" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
+            } else if(q.includes("sms classifier") || q.includes("spam sms")) {
+                res = `<b>PROJECT:</b> Spam SMS Classifier<br>
+                       <b>TOOLS:</b> Python, ML Algorithms, Text Preprocessing<br>
+                       <b>LOGIC:</b> Real-time filtering of fraudulent SMS content.<br>
+                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/Spam-Smss" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
             } else if(q.includes("project")) {
-                res = "AVAILABLE_PROJECTS: [Resume Analyzer, Expert System, Spam Mail Classifier, Spam SMS Classifier]";
+                res = "IDENTIFIED_ARCHIVES: <br>1. Resume Analyzer <br>2. Expert System <br>3. Spam Mail Classifier <br>4. Spam SMS Classifier. <br>Type a name to decrypt details.";
             }
 
             setTimeout(() => {
@@ -251,6 +258,11 @@
                 content.scrollTop = content.scrollHeight;
             }, 500);
         }
+
+        // Enter key support for chat
+        document.getElementById('chat-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') sendMessage();
+        });
     </script>
 </body>
 </html>
