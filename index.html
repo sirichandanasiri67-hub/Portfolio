@@ -58,7 +58,7 @@
             box-shadow: 0 20px 40px rgba(34, 211, 238, 0.1);
         }
 
-        /* Skill Pill Styling */
+        /* Updated Skill Pill with smooth animation */
         .skill-pill {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -68,12 +68,26 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: 0.3s;
+            /* Added smooth transition for animation */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            cursor: default;
         }
 
+        /* Hover animation added only for skills */
         .skill-pill:hover {
             border-color: var(--secondary);
             background: rgba(34, 211, 238, 0.1);
+            transform: translateY(-8px) scale(1.05); /* Lifts and slightly scales */
+            box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
+        }
+
+        /* Added smooth transition to the skill icon itself on hover */
+        .skill-pill i {
+            transition: transform 0.3s ease;
+        }
+
+        .skill-pill:hover i {
+            transform: scale(1.2) rotate(5deg);
         }
 
         .tech-badge { 
@@ -83,8 +97,11 @@
             text-transform: uppercase; letter-spacing: 1px;
         }
 
+        .cert-card {
+            border-left: 4px solid var(--secondary);
+        }
+
         .chat-window { height: 450px; display: none !important; flex-direction: column; }
-        
         #chat-content::-webkit-scrollbar { width: 4px; }
         #chat-content::-webkit-scrollbar-thumb { background: rgba(34, 211, 238, 0.3); border-radius: 10px; }
     </style>
@@ -99,6 +116,7 @@
             <a href="#about" class="hover:text-cyan-400 transition">System</a>
             <a href="#skills" class="hover:text-cyan-400 transition">Skills</a>
             <a href="#projects" class="hover:text-cyan-400 transition">Archives</a>
+            <a href="#certifications" class="hover:text-cyan-400 transition">Certs</a>
             <a href="#contact" class="hover:text-cyan-400 transition">Signal</a>
         </div>
         <div class="flex items-center gap-5">
@@ -118,7 +136,7 @@
             </p>
             <div class="mt-12 flex flex-wrap justify-center gap-6" data-aos="fade-up">
                 <a href="#projects" class="bg-cyan-500 hover:bg-cyan-400 text-black px-10 py-4 rounded-xl font-bold transition-all shadow-xl shadow-cyan-500/20">Access Projects</a>
-                <a href="mailto:sirichandanasiri67@gmail.com" class="glass-card px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition">Send Ping</a>
+                <a href="#certifications" class="glass-card px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition">Verified Credentials</a>
             </div>
         </div>
     </section>
@@ -195,6 +213,97 @@
         </div>
     </section>
 
+    <section id="certifications" class="py-24 max-w-6xl mx-auto px-6">
+        <h2 class="text-4xl font-bold mb-12 heading-font text-center">Verified <span class="text-cyan-400">Credentials</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up">
+            
+            <div class="glass-card p-8 flex flex-col gap-4 cert-card hover:border-purple-400 transition-all duration-300">
+                <div class="flex items-center gap-6">
+                    <div class="text-4xl text-purple-400"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Generative AI in Action</h3>
+                        <p class="text-gray-400 text-sm italic">Issued by IBM</p>
+                    </div>
+                </div>
+                <a href="https://www.linkedin.com/posts/siri-chandana07_generative-ai-in-action-was-issued-by-ibm-activity-7458862893372162048-tfZu" target="_blank" class="mt-2 text-[10px] text-purple-500 font-bold uppercase tracking-widest hover:text-white transition">
+                    View Verification <i class="fa-solid fa-external-link ml-1"></i>
+                </a>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col gap-4 cert-card hover:border-cyan-400 transition-all duration-300">
+                <div class="flex items-center gap-6">
+                    <div class="text-4xl text-cyan-400"><i class="fa-solid fa-microchip"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Machine Learning</h3>
+                        <p class="text-gray-400 text-sm italic">University of London | Coursera</p>
+                    </div>
+                </div>
+                <a href="https://www.linkedin.com/posts/siri-chandana07_machinelearning-universityoflondon-coursera-activity-7331697349708156929-ez4S" target="_blank" class="mt-2 text-[10px] text-cyan-500 font-bold uppercase tracking-widest hover:text-white transition">
+                    View Verification <i class="fa-solid fa-external-link ml-1"></i>
+                </a>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col gap-4 cert-card hover:border-purple-400 transition-all duration-300">
+                <div class="flex items-center gap-6">
+                    <div class="text-4xl text-purple-400"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Generative AI Path</h3>
+                        <p class="text-gray-400 text-sm italic">Infosys Springboard</p>
+                    </div>
+                </div>
+                <a href="https://www.linkedin.com/posts/siri-chandana07_ai-generativeai-infosysspringboard-activity-7328325966517129216-Ro6h" target="_blank" class="mt-2 text-[10px] text-purple-500 font-bold uppercase tracking-widest hover:text-white transition">
+                    View Verification <i class="fa-solid fa-external-link ml-1"></i>
+                </a>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col gap-4 cert-card hover:border-green-400 transition-all duration-300">
+                <div class="flex items-center gap-6">
+                    <div class="text-4xl text-green-400"><i class="fa-solid fa-file-excel"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Excel for Beginners</h3>
+                        <p class="text-gray-400 text-sm italic">Corporate Training Complete</p>
+                    </div>
+                </div>
+                <a href="https://www.linkedin.com/posts/siri-chandana07_certificate-of-completion-activity-7333016375948423169-n9nS" target="_blank" class="mt-2 text-[10px] text-green-500 font-bold uppercase tracking-widest hover:text-white transition">
+                    View Verification <i class="fa-solid fa-external-link ml-1"></i>
+                </a>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col gap-4 cert-card hover:border-cyan-400 transition-all duration-300">
+                <div class="flex items-center gap-6">
+                    <div class="text-4xl text-cyan-400"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Modern AI</h3>
+                        <p class="text-gray-400 text-sm italic">Cisco Academy</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <a href="https://www.linkedin.com/posts/siri-chandana07_ai-artificialintelligence-modernai-share-7458892470815289344-PYlm" target="_blank" class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest hover:text-white transition">
+                        View Verification <i class="fa-solid fa-external-link ml-1"></i>
+                    </a>
+                    <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Badge ID: 188cd8f2...</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 flex flex-col gap-4 cert-card hover:border-cyan-400 transition-all duration-300">
+                <div class="flex items-center gap-6">
+                    <div class="text-4xl text-cyan-400"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                        <h3 class="text-xl font-bold">Python Essentials 2</h3>
+                        <p class="text-gray-400 text-sm italic">Cisco Academy</p>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <a href="https://www.linkedin.com/posts/siri-chandana07_python-programming-pythonessentials-share-7458890453787267073-Rn9V" target="_blank" class="text-[10px] text-cyan-500 font-bold uppercase tracking-widest hover:text-white transition">
+                        View Verification <i class="fa-solid fa-external-link ml-1"></i>
+                    </a>
+                    <span class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Badge ID: 6b8febed...</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <footer id="contact" class="py-24 border-t border-white/5 text-center">
         <h2 class="text-4xl font-bold mb-10 heading-font">Ready to <span class="gradient-text">Collaborate?</span></h2>
         <div class="flex justify-center flex-wrap gap-6 mb-12">
@@ -258,34 +367,24 @@
             const q = input.value.toLowerCase();
             input.value = "";
             
-            let res = "ARCHIVE_NOT_FOUND. Try 'projects' or 'skills'.";
+            let res = "ARCHIVE_NOT_FOUND. Try 'projects', 'skills', or specific project names.";
             
-            if(q.includes("who are you") || q.includes("who is siri")) {
-                res = "I am Siri's Bot. Designed to provide data protocols on Siri Chandana Mancha's digital archives.";
-            } else if(q.includes("skills")) {
-                res = "<b>TECHNICAL SKILLS:</b> Python, AI, ML, Gen AI, SQL, Big Data, Data Structures, C, NLP.";
-            } else if(q.includes("resume analyzer")) {
-                res = `<b>PROJECT:</b> Resume Analyzer<br>
-                       <b>TOOLS:</b> Python, NLP, NLTK, Spacy, Streamlit<br>
-                       <b>LOGIC:</b> Extracts skills and matches them with JDs using Cosine Similarity.<br>
-                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/Resume-analyzer" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
+            if(q.includes("resume analyzer")) {
+                res = "<b>PROJECT: Resume Analyzer</b><br><b>Tools:</b> Python, NLP (Spacy/NLTK), Streamlit<br><b>Uses:</b> Automated screening and ranking of candidate profiles based on skill matching.<br><b>Source:</b> <a href='https://github.com/sirichandanasiri67-hub/Resume-analyzer' target='_blank' class='text-cyan-400 underline'>Decrypt Code</a>";
             } else if(q.includes("expert system")) {
-                res = `<b>PROJECT:</b> Expert System<br>
-                       <b>TOOLS:</b> Python, Knowledge Base, Logic Inference<br>
-                       <b>LOGIC:</b> Rule-based engines for intelligent decision-making.<br>
-                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/ExpertSystem_SiriChandana" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
-            } else if(q.includes("mail classifier") || q.includes("spam mail")) {
-                res = `<b>PROJECT:</b> Spam Mail Classifier<br>
-                       <b>TOOLS:</b> Python, Scikit-Learn, Pandas, Logistic Regression<br>
-                       <b>LOGIC:</b> Classifies text into Spam or Ham using TF-IDF vectorization.<br>
-                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/Spam-Mail-Classifier" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
-            } else if(q.includes("sms classifier") || q.includes("spam sms")) {
-                res = `<b>PROJECT:</b> Spam SMS Classifier<br>
-                       <b>TOOLS:</b> Python, ML Algorithms, Text Preprocessing<br>
-                       <b>LOGIC:</b> Real-time filtering of fraudulent SMS content.<br>
-                       <b>CODE:</b> <a href="https://github.com/sirichandanasiri67-hub/Spam-Smss" target="_blank" class="text-cyan-400 underline">View GitHub</a>`;
+                res = "<b>PROJECT: Expert System</b><br><b>Tools:</b> Python, Rule-based AI Engine<br><b>Uses:</b> Intelligent decision-making engine for automated troubleshooting and diagnostics.<br><b>Source:</b> <a href='https://github.com/sirichandanasiri67-hub/ExpertSystem_SiriChandana' target='_blank' class='text-purple-400 underline'>Decrypt Code</a>";
+            } else if(q.includes("spam mail")) {
+                res = "<b>PROJECT: Spam Mail Classifier</b><br><b>Tools:</b> Scikit-Learn, Logistic Regression, Python<br><b>Uses:</b> High-accuracy filtering of spam and phishing emails from user inboxes.<br><b>Source:</b> <a href='https://github.com/sirichandanasiri67-hub/Spam-Mail-Classifier' target='_blank' class='text-cyan-400 underline'>Decrypt Code</a>";
+            } else if(q.includes("spam sms")) {
+                res = "<b>PROJECT: Spam SMS Classifier</b><br><b>Tools:</b> Data Science, NLTK, Python<br><b>Uses:</b> Real-time detection and filtering of malicious or unwanted SMS messages.<br><b>Source:</b> <a href='https://github.com/sirichandanasiri67-hub/Spam-Smss' target='_blank' class='text-purple-400 underline'>Decrypt Code</a>";
+            } else if(q.includes("who are you") || q.includes("who is siri")) {
+                res = "I am Siri's Bot. Designed to provide data protocols on Siri Chandana Mancha's digital archives.";
+            } else if(q.includes("skill")) {
+                res = "<b>TECHNICAL SKILLS:</b> Python, AI, ML, Gen AI, SQL, Big Data, Data Structures, C, NLP.";
+            } else if(q.includes("cert") || q.includes("cisco")) {
+                res = "Verified Cisco Academy badges detected in system archives.";
             } else if(q.includes("project")) {
-                res = "IDENTIFIED_ARCHIVES: <br>1. Resume Analyzer <br>2. Expert System <br>3. Spam Mail Classifier <br>4. Spam SMS Classifier. <br>Type a name to decrypt details.";
+                res = "IDENTIFIED_ARCHIVES: Resume Analyzer, Expert System, Spam Mail, Spam SMS. (Type project name for details)";
             }
 
             setTimeout(() => {
