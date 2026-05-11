@@ -58,7 +58,6 @@
             box-shadow: 0 20px 40px rgba(34, 211, 238, 0.1);
         }
 
-        /* Updated Skill Pill with smooth animation */
         .skill-pill {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -68,20 +67,17 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            /* Added smooth transition for animation */
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
             cursor: default;
         }
 
-        /* Hover animation added only for skills */
         .skill-pill:hover {
             border-color: var(--secondary);
             background: rgba(34, 211, 238, 0.1);
-            transform: translateY(-8px) scale(1.05); /* Lifts and slightly scales */
+            transform: translateY(-8px) scale(1.05);
             box-shadow: 0 10px 20px rgba(34, 211, 238, 0.2);
         }
 
-        /* Added smooth transition to the skill icon itself on hover */
         .skill-pill i {
             transition: transform 0.3s ease;
         }
@@ -146,7 +142,9 @@
             <div class="glass-card p-12 text-center">
                 <h2 class="text-4xl font-bold gradient-text mb-8 heading-font">Core Summary</h2>
                 <p class="text-gray-400 text-lg leading-relaxed mb-8">
-                    Based at <b>Swarnandhra College</b>, I specialize in bridging the gap between raw data and intelligent action. My work focuses on Generative AI, NLP, and Predictive Models that solve real-world complexities through elegant code.
+                    I am a passionate <b>AI & ML Student</b> at <b>Swarnandhra College of Engineering and Technology</b>, dedicated to building intelligent systems that simplify complex problems. With a strong foundation in <b>Machine Learning, Generative AI, and NLP</b>, I enjoy transforming raw data into actionable insights and creating automated solutions like Resume Analyzers and Spam Classifiers.
+                    <br><br>
+                    My goal is to stay at the forefront of the Generative AI revolution, constantly refining my technical matrix to bridge the gap between <b>human logic and machine intelligence</b>. I thrive on clean code, neural logic, and the challenge of architecting the future of technology.
                 </p>
                 <div class="grid grid-cols-2 gap-6 max-w-md mx-auto">
                     <div class="p-4 border-l-2 border-purple-500 bg-purple-500/5">
@@ -164,8 +162,10 @@
 
     <section id="skills" class="py-20 max-w-6xl mx-auto px-6">
         <h2 class="text-4xl font-bold mb-12 heading-font text-center">Technical <span class="text-cyan-400">Matrix</span></h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4" data-aos="fade-up">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" data-aos="fade-up">
             <div class="skill-pill"><i class="fa-brands fa-python text-yellow-400"></i> Python</div>
+            <div class="skill-pill"><i class="fa-brands fa-html5 text-orange-500"></i> HTML</div>
+            <div class="skill-pill"><i class="fa-brands fa-css3-alt text-blue-500"></i> CSS</div>
             <div class="skill-pill"><i class="fa-solid fa-brain text-purple-400"></i> AI</div>
             <div class="skill-pill"><i class="fa-solid fa-robot text-cyan-400"></i> ML</div>
             <div class="skill-pill"><i class="fa-solid fa-sparkles text-pink-400"></i> Gen AI</div>
@@ -380,7 +380,7 @@
             } else if(q.includes("who are you") || q.includes("who is siri")) {
                 res = "I am Siri's Bot. Designed to provide data protocols on Siri Chandana Mancha's digital archives.";
             } else if(q.includes("skill")) {
-                res = "<b>TECHNICAL SKILLS:</b> Python, AI, ML, Gen AI, SQL, Big Data, Data Structures, C, NLP.";
+                res = "<b>TECHNICAL SKILLS:</b> Python, HTML, CSS, AI, ML, Gen AI, SQL, Big Data, Data Structures, C, NLP.";
             } else if(q.includes("cert") || q.includes("cisco")) {
                 res = "Verified Cisco Academy badges detected in system archives.";
             } else if(q.includes("project")) {
